@@ -1,0 +1,154 @@
+{
+  "name": "lyrics-np",
+  "permissions": "NONE",
+  "restriction": "4",
+  "_id": "MiROO",
+  "actions": [
+    {
+      "server": "0",
+      "info": "9",
+      "storage": "1",
+      "varName": "song url",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "type": "0",
+      "input": "${tempVars(\"song url\")}",
+      "info0": "2",
+      "info1": "1",
+      "apikey": "AIzaSyC85ahxwCM68A4ktxBWCnRogcA6ipCGYuY",
+      "results": "1",
+      "storage": "1",
+      "varName": "yt-title",
+      "name": "YouTube Search"
+    },
+    {
+      "storage": "2",
+      "varName": "title",
+      "conversion": "2",
+      "storage2": "1",
+      "varName2": "title-lyrics",
+      "name": "Convert Variable"
+    },
+    {
+      "title": "Searching for \"${tempVars(\"title-lyrics\")}\" on genius.com",
+      "author": "",
+      "color": "FFFF00",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed-load",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed-load",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "embed-load-sent",
+      "name": "Send Embed Message"
+    },
+    {
+      "song": "${tempVars(\"title-lyrics\")}",
+      "key": "YOUR_GENIUS_API_KEY_HERE",
+      "info": "0",
+      "storage": "1",
+      "varName": "title",
+      "name": "Get Song Lyrics"
+    },
+    {
+      "song": "${tempVars(\"title-lyrics\")}",
+      "key": "YOUR_GENIUS_API_KEY_HERE",
+      "info": "1",
+      "storage": "1",
+      "varName": "artist",
+      "name": "Get Song Lyrics"
+    },
+    {
+      "song": "${tempVars(\"title-lyrics\")}",
+      "key": "YOUR_GENIUS_API_KEY_HERE",
+      "info": "2",
+      "storage": "1",
+      "varName": "lyrics",
+      "name": "Get Song Lyrics"
+    },
+    {
+      "song": "${tempVars(\"title-lyrics\")}",
+      "key": "YOUR_GENIUS_API_KEY_HERE",
+      "info": "3",
+      "storage": "1",
+      "varName": "url",
+      "name": "Get Song Lyrics"
+    },
+    {
+      "title": "${tempVars(\"artist\")}: ${tempVars(\"title\")}",
+      "author": "",
+      "color": "FFFF00",
+      "url": "${tempVars(\"url\")}",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lyrics",
+      "comparison": "7",
+      "value": "2048",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Lyrics is too large to show up. [Click here](${tempVars(\"url\")}) to see them online.",
+      "name": "Set Embed Description"
+    },
+    {
+      "count": "1",
+      "name": "Skip Actions"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${tempVars(\"lyrics\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed-load-sent",
+      "storage2": "1",
+      "varName2": "embed",
+      "name": "Edit Embed"
+    }
+  ],
+  "_timeRestriction": 10,
+  "_aliases": []
+}
